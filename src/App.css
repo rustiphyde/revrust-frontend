@@ -1,0 +1,163 @@
+:root {
+  /* =========================
+     Brand Core
+     ========================= */
+  --color-brand-orange: #FF8A00;
+  --color-brand-brown:  #864B0D;
+
+  /* =========================
+     Light Mode Backgrounds
+     ========================= */
+  --color-bg-page:      #FFF8EF; /* main page background */
+  --color-bg-section:   #F9C56C; /* accent / highlighted sections */
+  --color-bg-surface:   #FFFFFF; /* cards, panels */
+
+  /* =========================
+     Light Mode Text
+     ========================= */
+  --color-text-primary: #3B2A1E;
+  --color-text-secondary: #6A4A2E;
+  --color-text-inverse: #FFFFFF;
+
+  /* =========================
+     Borders & UI
+     ========================= */
+  --color-border:       #C8A982;
+  --color-divider:      #E3D1B0;
+
+  /* =========================
+     Interaction States
+     ========================= */
+  --color-hover:        #DA8E32;
+  --color-active:       #C1620F;
+
+  /* Typography */
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+
+  /* Disable demo color-scheme behavior */
+  color-scheme: light;
+
+  /* Text rendering */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dark {
+  /* =========================
+     Dark Mode Backgrounds
+     ========================= */
+  --color-bg-page:      #1F120A;
+  --color-bg-section:   #2A1F15;
+  --color-bg-surface:   #3B2A1E;
+
+  /* =========================
+     Dark Mode Text
+     ========================= */
+  --color-text-primary: #E8DCCF;
+  --color-text-secondary: #B6A18A;
+  --color-text-inverse: #1F120A;
+
+  /* =========================
+     Borders & UI
+     ========================= */
+  --color-border:       #4A3A2E;
+  --color-divider:      #2F241A;
+
+  /* =========================
+     Interaction States
+     ========================= */
+  --color-hover:        #EAC45F;
+  --color-active:       #BB5A18;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg-page:      #1F120A;
+    --color-bg-section:   #2A1F15;
+    --color-bg-surface:   #3B2A1E;
+
+    --color-text-primary: #E8DCCF;
+    --color-text-secondary: #B6A18A;
+    --color-text-inverse: #1F120A;
+
+    --color-border:       #4A3A2E;
+    --color-divider:      #2F241A;
+
+    --color-hover:        #EAC45F;
+    --color-active:       #BB5A18;
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background-color: var(--color-bg-page);
+  color: var(--color-text-primary);
+}
+
+.card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+}
+
+.section--highlight {
+  background-color: var(--color-bg-section);
+}
+
+.button-primary {
+  background-color: var(--color-brand-orange);
+  color: var(--color-text-inverse);
+}
+
+.button-primary:hover {
+  background-color: var(--color-hover);
+}
+
+a {
+  font-weight: 500;
+  color: var(--color-brand-orange);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-hover);
+}
+
+/* Headings */
+h1 {
+  font-size: 3rem;
+  line-height: 1.15;
+  color: var(--color-text-primary);
+}
+
+/* Buttons — kill demo styling */
+button {
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  padding: 0.6em 1.2em;
+
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+
+  background-color: var(--color-bg-surface);
+  color: var(--color-text-primary);
+
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--color-hover);
+}
+
+button:focus,
+button:focus-visible {
+  outline: none;
+}

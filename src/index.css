@@ -1,0 +1,74 @@
+/* =========================
+   GLOBAL OVERRIDES
+   (Replaces Vite boilerplate)
+   ========================= */
+
+:root {
+  /* Typography */
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+
+  /* Disable demo color-scheme behavior */
+  color-scheme: light;
+
+  /* Text rendering */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Body should NOT be flex-centered */
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background-color: var(--color-bg-page);
+  color: var(--color-text-primary);
+}
+
+/* Links */
+a {
+  font-weight: 500;
+  color: var(--color-brand-orange);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-hover);
+}
+
+/* Headings */
+h1 {
+  font-size: 3rem;
+  line-height: 1.15;
+  color: var(--color-text-primary);
+}
+
+/* Buttons — kill demo styling */
+button {
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  padding: 0.6em 1.2em;
+
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+
+  background-color: var(--color-bg-surface);
+  color: var(--color-text-primary);
+
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--color-hover);
+}
+
+button:focus,
+button:focus-visible {
+  outline: none;
+}
