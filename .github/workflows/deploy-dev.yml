@@ -6,7 +6,7 @@ on:
       - dev
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,8 +24,11 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Upload dist artifact
-        uses: actions/upload-artifact@v4
+      - name: Deploy to cPanel (dev)
+        uses: SamKirkland/FTP-Deploy-Action@v4
         with:
-          name: dist
-          path: dist
+          server: ${{ secrets.CPANEL_HOST }}
+          username: ${{ secrets.CPANEL_USER }}
+          password: ${{ secrets.CPANEL_PASSWORD }}
+          local-dir: dist/
+          server-dir: /dev_html/
