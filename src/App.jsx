@@ -8,6 +8,7 @@ export default function App() {
     <>
       <Navbar />
       <main style={{ minHeight: "80vh" }}>
+        <p style={{ color: 'red' }}>DEV BUILD TEST</p>
         <Outlet />
       </main>
       <Footer />
