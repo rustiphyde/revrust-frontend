@@ -27,7 +27,7 @@ jobs:
       - name: Deploy via SSH (rsync)
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: revrust.com
+          host: 69.27.42.172
           username: revrust
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
