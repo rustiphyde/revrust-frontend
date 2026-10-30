@@ -233,7 +233,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   min-height: 300px;
   padding: clamp(1.5rem, 3vw, 2.5rem);
   overflow: hidden;

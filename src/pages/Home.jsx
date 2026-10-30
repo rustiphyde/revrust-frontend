@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { SiSpotify, SiApplemusic, SiYoutubemusic } from "react-icons/si";
 import revRustLogo from "../assets/rev-rust-logo.png";
@@ -8,28 +9,28 @@ const sections = [
   {
     number: "01",
     title: "MUSIC",
-    description: "Original tracks, releases, and everything in between.",
+    description: "Original tracks, releases, lyrics, and the stories behind the music.",
     link: "/music",
     label: "Explore Music",
   },
   {
     number: "02",
     title: "VIDEOS",
-    description: "Music videos, visual storytelling, and moving imagery.",
+    description: "Official music videos, lyric videos, and visual storytelling.",
     link: "/videos",
     label: "Watch Videos",
   },
   {
     number: "03",
-    title: "ART & DESIGN",
-    description: "Original artwork, visual identities, and creative experiments.",
-    link: "/art",
-    label: "View Artwork",
+    title: "MERCH",
+    description: "Official Rev. Rust merchandise, apparel, and more.",
+    link: "/merch",
+    label: "Shop Merch",
   },
   {
     number: "04",
     title: "THE LAB",
-    description: "Development, technology, and projects built from curiosity.",
+    description: "Collaborations, creative partnerships, and making music with other artists.",
     link: "/lab",
     label: "Enter the Lab",
   },
@@ -46,7 +47,7 @@ export default function Home() {
             <div className="home-hero__left">
               <div className="home-hero__eyebrow">
                 <span className="home-hero__indicator" />
-                INDEPENDENT MUSIC & CREATIVE EXPRESSION
+                INDEPENDENT MUSIC WITHOUT BOUNDARIES
               </div>
 
               <h1 className="home-hero__brand">
@@ -69,8 +70,9 @@ export default function Home() {
               </div>
 
               <p className="home-hero__description">
-                A collision of sound, technology, and imagination.
-                Original music at the core. Everything else is an extension.
+                Rap, punk, metal, horrorcore, and everything in between.
+                No formulas. No genre restrictions. Just music made
+                without compromise.
               </p>
 
               <div className="home-hero__actions">
@@ -91,7 +93,7 @@ export default function Home() {
               </div>
 
               <Link
-                to="/music"
+                to="/music/cascade-failure"
                 className="home-featured__artwork"
                 aria-label="Explore Cascade Failure by Rev Rust"
               >
@@ -110,7 +112,7 @@ export default function Home() {
                 </div>
 
                 <Link
-                  to="/music"
+                  to="/music/cascade-failure"
                   className="home-featured__arrow"
                   aria-label="Explore Cascade Failure"
                 >
@@ -153,7 +155,10 @@ export default function Home() {
                 </a>
               </div>
 
-              <Link to="/music" className="home-featured__all-platforms">
+              <Link
+                to="/music/cascade-failure"
+                className="home-featured__all-platforms"
+              >
                 <span>View All Streaming Platforms</span>
                 <span aria-hidden="true">↗</span>
               </Link>
@@ -161,7 +166,7 @@ export default function Home() {
           </div>
 
           <div className="home-hero__bottom">
-            <span>MUSIC / VIDEOS / ART / DEVELOPMENT</span>
+            <span>MUSIC / VIDEOS / MERCH / COLLABORATIONS</span>
             <span>SCROLL TO EXPLORE ↓</span>
           </div>
         </div>
@@ -183,8 +188,9 @@ export default function Home() {
             </div>
 
             <p>
-              Music is the foundation. The creative process extends
-              into visual storytelling, design, and technology.
+              From genre-defying music and visual storytelling
+              to official merchandise and collaborations with
+              other artists. Explore everything Rev. Rust.
             </p>
           </div>
 
@@ -212,7 +218,7 @@ export default function Home() {
           </div>
 
           <div className="home-explore__more">
-            <Link to="/worlds">Explore Original Worlds ↗</Link>
+            <Link to="/shows">Upcoming Shows ↗</Link>
             <Link to="/about">About Rev Rust ↗</Link>
           </div>
         </div>
