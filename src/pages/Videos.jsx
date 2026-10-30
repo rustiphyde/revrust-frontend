@@ -1,8 +1,11 @@
+
+import ComingSoon from "../components/ComingSoon";
+
 export default function Videos() {
-    return (
-      <div style={{ padding: "2rem" }}>
-        <h1>Videos</h1>
-        <p>Your Videos page content goes here.</p>
-      </div>
-    );
-  }
+  return (
+    <ComingSoon
+      title="SEE THE NOISE."
+      description="Official music videos, lyric videos, and visual chaos are on the way. Keep your eyes open."
+    />
+  );
+}

@@ -1,8 +1,11 @@
+
+import ComingSoon from "../components/ComingSoon";
+
 export default function Lab() {
-    return (
-      <div style={{ padding: "2rem" }}>
-        <h1>Lab</h1>
-        <p>Your Lab page content goes here.</p>
-      </div>
-    );
-  }
+  return (
+    <ComingSoon
+      title="ENTER THE LAB."
+      description="Where sounds collide and creative boundaries get broken. The Rev. Rust collaboration hub is taking shape. Stay tuned."
+    />
+  );
+}

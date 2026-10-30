@@ -1,8 +1,11 @@
+
+import ComingSoon from "../components/ComingSoon";
+
 export default function Merch() {
-    return (
-      <div style={{ padding: "2rem" }}>
-        <h1>Merch</h1>
-        <p>Your merch page content goes here.</p>
-      </div>
-    );
-  }
+  return (
+    <ComingSoon
+      title="WEAR THE NOISE."
+      description="New Rev. Rust merchandise is in the works. Stay tuned for apparel, exclusive designs, and more."
+    />
+  );
+}

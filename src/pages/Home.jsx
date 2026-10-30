@@ -4,6 +4,8 @@ import { SiSpotify, SiApplemusic, SiYoutubemusic } from "react-icons/si";
 import revRustLogo from "../assets/rev-rust-logo.png";
 import cascadeFailureCover from "../assets/cascade-failure.jpg";
 import "./Home.css";
+import useScrollReveal from "../hooks/useScrollReveal";
+import "../styles/animations.css";
 
 const sections = [
   {
@@ -37,6 +39,7 @@ const sections = [
 ];
 
 export default function Home() {
+  useScrollReveal();
   return (
     <div className="home">
       <section className="home-hero">
@@ -45,12 +48,12 @@ export default function Home() {
         <div className="container home-hero__content">
           <div className="home-hero__layout">
             <div className="home-hero__left">
-              <div className="home-hero__eyebrow">
+              <div className="home-hero__eyebrow rr-entrance">
                 <span className="home-hero__indicator" />
                 INDEPENDENT MUSIC WITHOUT BOUNDARIES
               </div>
 
-              <h1 className="home-hero__brand">
+              <h1 className="home-hero__brand rr-entrance-scale">
                 <img
                   src={revRustLogo}
                   alt="Rev Rust"
@@ -59,7 +62,7 @@ export default function Home() {
                 />
               </h1>
 
-              <div className="home-hero__intro">
+              <div className="home-hero__intro rr-entrance">
                 <div className="home-hero__accent" />
 
                 <p>
@@ -69,13 +72,13 @@ export default function Home() {
                 </p>
               </div>
 
-              <p className="home-hero__description">
+              <p className="home-hero__description rr-entrance">
                 Rap, punk, metal, horrorcore, and everything in between.
                 No formulas. No genre restrictions. Just music made
                 without compromise.
               </p>
 
-              <div className="home-hero__actions">
+              <div className="home-hero__actions rr-entrance">
                 <Link to="/music" className="button button-primary">
                   Explore the Music <span aria-hidden="true">↗</span>
                 </Link>
@@ -86,7 +89,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="home-featured">
+            <div className="home-featured rr-entrance-scale">
               <div className="home-featured__label">
                 <span className="home-featured__pulse" />
                 FEATURED RELEASE
@@ -174,7 +177,7 @@ export default function Home() {
 
       <section className="home-explore section">
         <div className="container">
-          <div className="home-explore__heading">
+          <div className="home-explore__heading rr-reveal">
             <div>
               <span className="home-explore__eyebrow">
                 EXPLORE REV RUST
@@ -198,7 +201,7 @@ export default function Home() {
             {sections.map((section) => (
               <Link
                 to={section.link}
-                className="home-explore__card"
+                className="home-explore__card rr-reveal"
                 key={section.number}
               >
                 <div className="home-explore__card-top">
@@ -217,7 +220,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="home-explore__more">
+          <div className="home-explore__more rr-reveal">
             <Link to="/shows">Upcoming Shows ↗</Link>
             <Link to="/about">About Rev Rust ↗</Link>
           </div>

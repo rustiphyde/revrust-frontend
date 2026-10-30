@@ -1,6 +1,7 @@
 
 import { Link } from "react-router-dom";
 import revRustAbout from "../assets/rev-rust-about.jpg";
+import Reveal from "../components/Reveal";
 import "./About.css";
 
 const influences = [
@@ -56,201 +57,253 @@ const milestones = [
 export default function About() {
   return (
     <main className="about-page">
-      
-    <section className="about-hero">
-      <div className="container about-hero__inner">
-        <div className="about-hero__content">
-          <span className="about-hero__eyebrow">
-            THE ARTIST BEHIND THE MUSIC
-          </span>
+      {/* HERO */}
+      <section className="about-hero">
+        <div className="container about-hero__inner">
+          <div className="about-hero__content">
+            <Reveal delay={0}>
+              <span className="about-hero__eyebrow">
+                THE ARTIST BEHIND THE MUSIC
+              </span>
+            </Reveal>
 
-          <h1 className="about-hero__title">
-            NO BOUNDARIES.
-            <br />
-            NO FORMULAS.
-            <br />
-            <span>JUST MUSIC.</span>
-          </h1>
+            <Reveal delay={100}>
+              <h1 className="about-hero__title">
+                NO BOUNDARIES.
+                <br />
+                NO FORMULAS.
+                <br />
+                <span>JUST MUSIC.</span>
+              </h1>
+            </Reveal>
 
-          <p className="about-hero__intro">
-            Rap. Horrorcore. Punk. Metal. Dubstep. Country.
-            A lifetime of musical influences brought together
-            without compromise.
-          </p>
+            <Reveal delay={200}>
+              <p className="about-hero__intro">
+                Rap. Horrorcore. Punk. Metal. Dubstep. Country.
+                A lifetime of musical influences brought together
+                without compromise.
+              </p>
+            </Reveal>
 
-          <div className="about-hero__actions">
-            <Link
-              to="/music"
-              className="about-button about-button--primary"
-            >
-              Explore the Music
-            </Link>
+            <Reveal delay={300}>
+              <div className="about-hero__actions">
+                <Link
+                  to="/music"
+                  className="about-button about-button--primary"
+                >
+                  Explore the Music
+                </Link>
 
-            <a
-              href="#the-story"
-              className="about-button about-button--outline"
-            >
-              Read the Story
-            </a>
+                <a
+                  href="#the-story"
+                  className="about-button about-button--outline"
+                >
+                  Read the Story
+                </a>
+              </div>
+            </Reveal>
           </div>
-        </div>
 
-        <div className="about-hero__artwork">
-          <img
-            src={revRustAbout}
-            alt="Illustrated Rev. Rust portrait in an industrial wasteland"
-            className="about-hero__image"
-          />
+          <Reveal className="about-hero__artwork" delay={250}>
+            <img
+              src={revRustAbout}
+              alt="Illustrated Rev. Rust portrait in an industrial wasteland"
+              className="about-hero__image"
+            />
+          </Reveal>
         </div>
-      </div>
-    </section>
+      </section>
 
+      {/* BACKSTORY */}
       <section id="the-story" className="about-section about-story">
         <div className="container about-story__layout">
-          <div className="about-section__heading">
-            <span className="about-section__eyebrow">THE BACKSTORY</span>
+          <Reveal className="about-section__heading">
+            <span className="about-section__eyebrow">
+              THE BACKSTORY
+            </span>
             <h2>
               A Lifetime of <span>Noise</span>
             </h2>
-          </div>
+          </Reveal>
 
           <div className="about-story__content">
-            <p className="about-story__lead">
-              Raised in New Jersey and shaped by the music of the
-              80s, 90s, and early 2000s, Rev. Rust is an independent
-              recording artist whose sound refuses to fit neatly
-              into any single genre.
-            </p>
-            
-            <p>
-              Music has been part of his life since childhood,
-              but the 1990s were especially formative. Growing
-              up in New Jersey, he developed a deep appreciation
-              for the raw emotion of grunge, the aggression of
-              heavy metal, the rebellious energy of punk, and
-              the rhythm and lyricism of hip-hop.
-            </p>
+            <Reveal>
+              <p className="about-story__lead">
+                Raised in New Jersey and shaped by the music of the
+                80s, 90s, and early 2000s, Rev. Rust is an independent
+                recording artist whose sound refuses to fit neatly
+                into any single genre.
+              </p>
+            </Reveal>
 
-            <p>
-              As his musical interests expanded through the late
-              90s and early 2000s, heavier styles introduced
-              new possibilities for vocal expression. Aggressive
-              instrumentation, guttural growls, melodic singing,
-              and explosive vocal delivery all became influences
-              that would eventually find their way into his
-              own recordings.
-            </p>
+            <Reveal>
+              <p>
+                Music has been part of his life since childhood,
+                but the 1990s were especially formative. Growing
+                up in New Jersey, he developed a deep appreciation
+                for the raw emotion of grunge, the aggression of
+                heavy metal, the rebellious energy of punk, and
+                the rhythm and lyricism of hip-hop.
+              </p>
+            </Reveal>
 
-            <p>
-              His appreciation for hip-hop also shaped his approach
-              to songwriting. Drawing inspiration from generations
-              of lyricists, he developed a fascination with intricate
-              rhyme schemes, multisyllabic patterns, internal rhymes,
-              and complex wordplay. That appreciation for the craft
-              pushed him to continually refine his writing and
-              develop his own lyrical style.
-            </p>
+            <Reveal>
+              <p>
+                As his musical interests expanded through the late
+                90s and early 2000s, heavier styles introduced
+                new possibilities for vocal expression. Aggressive
+                instrumentation, guttural growls, melodic singing,
+                and explosive vocal delivery all became influences
+                that would eventually find their way into his
+                own recordings.
+              </p>
+            </Reveal>
 
-            <p>
-              In his younger years, he also played bass and guitar
-              in various bands, gaining firsthand experience with
-              collaborative songwriting and live musicianship.
-              But maintaining a band proved increasingly difficult.
-              Every member had their own life, responsibilities,
-              and priorities, and keeping everyone moving in the
-              same direction was often a challenge.
-            </p>
+            <Reveal>
+              <p>
+                His appreciation for hip-hop also shaped his approach
+                to songwriting. Drawing inspiration from generations
+                of lyricists, he developed a fascination with intricate
+                rhyme schemes, multisyllabic patterns, internal rhymes,
+                and complex wordplay. That appreciation for the craft
+                pushed him to continually refine his writing and
+                develop his own lyrical style.
+              </p>
+            </Reveal>
 
-            <p>
-              Eventually, he gravitated toward working independently,
-              where he could take full responsibility for his music,
-              explore different creative directions, and move at
-              his own pace without relying on an entire group
-              to make things happen.
-            </p>
+            <Reveal>
+              <p>
+                In his younger years, he also played bass and guitar
+                in various bands, gaining firsthand experience with
+                collaborative songwriting and live musicianship.
+                But maintaining a band proved increasingly difficult.
+                Every member had their own life, responsibilities,
+                and priorities, and keeping everyone moving in the
+                same direction was often a challenge.
+              </p>
+            </Reveal>
 
-            <p>
-              In 2013, after moving to St. Louis, Missouri,
-              he began producing beats, recording rap songs,
-              and seriously pursuing a solo music career.
-              His East Coast roots remained an important influence,
-              while the Midwest rap scene added new dimensions
-              to his developing style.
-            </p>
+            <Reveal>
+              <p>
+                Eventually, he gravitated toward working independently,
+                where he could take full responsibility for his music,
+                explore different creative directions, and move at
+                his own pace without relying on an entire group
+                to make things happen.
+              </p>
+            </Reveal>
+
+            <Reveal>
+              <p>
+                In 2013, after moving to St. Louis, Missouri,
+                he began producing beats, recording rap songs,
+                and seriously pursuing a solo music career.
+                His East Coast roots remained an important influence,
+                while the Midwest rap scene added new dimensions
+                to his developing style.
+              </p>
+            </Reveal>
           </div>
         </div>
       </section>
 
+      {/* ORIGIN OF THE NAME */}
       <section className="about-section about-origin">
         <div className="container about-origin__inner">
-          <span className="about-section__eyebrow">THE NAME IS REAL</span>
+          <Reveal>
+            <span className="about-section__eyebrow">
+              THE NAME IS REAL
+            </span>
+          </Reveal>
 
-          <h2>
-            Not Just a <span>Persona.</span>
-          </h2>
+          <Reveal delay={100}>
+            <h2>
+              Not Just a <span>Persona.</span>
+            </h2>
+          </Reveal>
 
           <div className="about-origin__content">
-            <p className="about-origin__lead">
-              Rev. Rust isn't just a stage name.
-              He's actually a legally ordained minister.
-            </p>
+            <Reveal>
+              <p className="about-origin__lead">
+                Rev. Rust isn't just a stage name.
+                He's actually a legally ordained minister.
+              </p>
+            </Reveal>
 
-            <p>
-              The story behind his ordination is as unconventional
-              as his music. While DJing a wedding for friends,
-              they paid to have him ordained so he could also
-              officiate their ceremony.
-            </p>
+            <Reveal>
+              <p>
+                The story behind his ordination is as unconventional
+                as his music. While DJing a wedding for friends,
+                they paid to have him ordained so he could also
+                officiate their ceremony.
+              </p>
+            </Reveal>
 
-            <p>
-              Years later, after pursuing music under various
-              artist identities without finding the momentum
-              he wanted, he decided to make a fresh start.
-            </p>
+            <Reveal>
+              <p>
+                Years later, after pursuing music under various
+                artist identities without finding the momentum
+                he wanted, he decided to make a fresh start.
+              </p>
+            </Reveal>
 
-            <p>
-              In 2023, Rev. Rust emerged with H8r-aid,
-              a defiant declaration about leaving the past
-              behind, ignoring the naysayers, and continuing
-              to chase his dreams regardless of the obstacles.
-            </p>
+            <Reveal>
+              <p>
+                In 2023, Rev. Rust emerged with H8r-aid,
+                a defiant declaration about leaving the past
+                behind, ignoring the naysayers, and continuing
+                to chase his dreams regardless of the obstacles.
+              </p>
+            </Reveal>
 
-            <p className="about-origin__closing">
-              The rebrand wasn't about pretending to be somebody else.
-              It was about bringing every side of himself together
-              under one name.
-            </p>
+            <Reveal>
+              <p className="about-origin__closing">
+                The rebrand wasn't about pretending to be somebody else.
+                It was about bringing every side of himself together
+                under one name.
+              </p>
+            </Reveal>
           </div>
         </div>
       </section>
 
+      {/* MUSICAL INFLUENCES */}
       <section className="about-section about-sound">
         <div className="container">
-          <div className="about-section__heading about-section__heading--center">
-            <span className="about-section__eyebrow">THE SOUND</span>
+          <Reveal className="about-section__heading about-section__heading--center">
+            <span className="about-section__eyebrow">
+              THE SOUND
+            </span>
+
             <h2>
               Genre Is Not a <span>Restriction.</span>
             </h2>
+
             <p>
               Every influence has a place. Every song gets
               to become whatever it needs to be.
             </p>
-          </div>
+          </Reveal>
 
           <div className="about-sound__grid">
             {influences.map((influence, index) => (
-              <article className="about-sound__card" key={influence.title}>
+              <Reveal
+                as="article"
+                className="about-sound__card"
+                key={influence.title}
+                delay={(index % 4) * 100}
+              >
                 <span className="about-sound__number">
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
                 <h3>{influence.title}</h3>
                 <p>{influence.description}</p>
-              </article>
+              </Reveal>
             ))}
           </div>
 
-          <div className="about-sound__statement">
+          <Reveal className="about-sound__statement">
             <p>
               Sometimes it's aggressive battle rap.
               Sometimes it's horror-inspired storytelling.
@@ -261,24 +314,30 @@ export default function About() {
             <strong>
               The only rule is that there are no rules.
             </strong>
-          </div>
+          </Reveal>
         </div>
       </section>
 
+      {/* TIMELINE */}
       <section className="about-section about-journey">
         <div className="container">
-          <div className="about-section__heading">
-            <span className="about-section__eyebrow">THE JOURNEY</span>
+          <Reveal className="about-section__heading">
+            <span className="about-section__eyebrow">
+              THE JOURNEY
+            </span>
+
             <h2>
               Built Over <span>Time.</span>
             </h2>
-          </div>
+          </Reveal>
 
           <div className="about-journey__timeline">
-            {milestones.map((milestone) => (
-              <article
+            {milestones.map((milestone, index) => (
+              <Reveal
+                as="article"
                 className="about-journey__item"
                 key={milestone.year}
+                delay={(index % 2) * 100}
               >
                 <span className="about-journey__year">
                   {milestone.year}
@@ -288,31 +347,43 @@ export default function About() {
                   <h3>{milestone.title}</h3>
                   <p>{milestone.description}</p>
                 </div>
-              </article>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
+      {/* CALL TO ACTION */}
       <section className="about-section about-cta">
         <div className="container about-cta__inner">
-          <span className="about-section__eyebrow">
-            THE STORY CONTINUES
-          </span>
+          <Reveal>
+            <span className="about-section__eyebrow">
+              THE STORY CONTINUES
+            </span>
+          </Reveal>
 
-          <h2>
-            Hear What Happens <span>Next.</span>
-          </h2>
+          <Reveal delay={100}>
+            <h2>
+              Hear What Happens <span>Next.</span>
+            </h2>
+          </Reveal>
 
-          <p>
-            From intricate rhyme chains and guttural growls
-            to pop-punk melodies and dark humor,
-            the music tells the rest of the story.
-          </p>
+          <Reveal delay={200}>
+            <p>
+              From intricate rhyme chains and guttural growls
+              to pop-punk melodies and dark humor,
+              the music tells the rest of the story.
+            </p>
+          </Reveal>
 
-          <Link to="/music" className="about-button about-button--primary">
-            Explore the Discography
-          </Link>
+          <Reveal delay={300}>
+            <Link
+              to="/music"
+              className="about-button about-button--primary"
+            >
+              Explore the Discography
+            </Link>
+          </Reveal>
         </div>
       </section>
     </main>

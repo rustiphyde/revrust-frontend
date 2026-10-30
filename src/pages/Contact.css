@@ -21,7 +21,9 @@
   text-transform: uppercase;
 }
 
-/* HERO */
+/* ==========================================
+   HERO
+   ========================================== */
 
 .contact-hero {
   position: relative;
@@ -71,7 +73,9 @@
   line-height: 1.85;
 }
 
-/* MAIN LAYOUT */
+/* ==========================================
+   MAIN LAYOUT
+   ========================================== */
 
 .contact-main {
   padding-block: clamp(80px, 9vw, 130px);
@@ -84,7 +88,13 @@
   gap: clamp(40px, 6vw, 110px);
 }
 
-/* CONTACT INFORMATION */
+/* ==========================================
+   CONTACT INFORMATION
+   ========================================== */
+
+.contact-info {
+  min-width: 0;
+}
 
 .contact-info h2 {
   margin: 1.2rem 0 1.5rem;
@@ -162,7 +172,9 @@
   gap: 0.85rem;
 }
 
-/* FORM PANEL */
+/* ==========================================
+   FORM PANEL
+   ========================================== */
 
 .contact-form-panel {
   min-width: 0;
@@ -199,7 +211,9 @@
   line-height: 1.75;
 }
 
-/* FORM */
+/* ==========================================
+   FORM
+   ========================================== */
 
 .contact-form {
   display: flex;
@@ -323,7 +337,70 @@
   white-space: nowrap;
 }
 
-/* RESPONSIVE */
+/* ==========================================
+   REVEAL ANIMATION COMPATIBILITY
+   ========================================== */
+
+/*
+  Reveal adds a wrapper around selected content.
+  These rules preserve the original spacing and
+  layout while allowing the entrance animations.
+*/
+
+/* Preserve hero heading spacing */
+
+.contact-hero .reveal:has(h1) {
+  margin: 1.5rem 0 2rem;
+}
+
+.contact-hero .reveal h1 {
+  margin: 0;
+}
+
+/* Keep the hero description at its original width */
+
+.contact-hero .reveal:has(> p) {
+  max-width: 670px;
+}
+
+/* Preserve contact heading spacing */
+
+.contact-info > .reveal:has(h2) {
+  margin: 1.2rem 0 1.5rem;
+}
+
+.contact-info > .reveal h2 {
+  margin: 0;
+}
+
+/* Preserve introduction spacing */
+
+.contact-info > .reveal:has(.contact-info__intro) {
+  max-width: 460px;
+  margin-bottom: 3rem;
+}
+
+.contact-info .reveal .contact-info__intro {
+  margin-bottom: 0;
+}
+
+/* Ensure contact items fill the available width */
+
+.contact-info__items > .reveal {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Preserve form panel grid sizing */
+
+.contact-layout > .reveal.contact-form-panel {
+  min-width: 0;
+  width: 100%;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
 
 @media (max-width: 1000px) {
   .contact-layout {
@@ -332,6 +409,10 @@
   }
 
   .contact-info__intro {
+    max-width: 650px;
+  }
+
+  .contact-info > .reveal:has(.contact-info__intro) {
     max-width: 650px;
   }
 }
@@ -363,5 +444,19 @@
 
   .contact-info__items {
     gap: 2rem;
+  }
+}
+
+/* ==========================================
+   ACCESSIBILITY
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-info__link,
+  .contact-info__email,
+  .contact-form__field input,
+  .contact-form__field select,
+  .contact-form__field textarea {
+    transition: none;
   }
 }

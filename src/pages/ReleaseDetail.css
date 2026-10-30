@@ -77,6 +77,10 @@
 
 /* RELEASE INFORMATION */
 
+.release-detail__intro {
+  min-width: 0;
+}
+
 .release-detail__intro h1 {
   margin: 1rem 0;
   font-family: var(--font-display);
@@ -315,7 +319,6 @@
    LYRICS + SIDEBAR LAYOUT
    ========================================== */
 
-
 .release-detail__content {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -323,7 +326,6 @@
   align-items: start;
   margin-bottom: 4rem;
 }
-
 
 /* Both columns must be allowed to shrink */
 
@@ -333,8 +335,8 @@
 }
 
 /*
-   Use the same heading row height in both columns.
-   The cards begin at the same vertical position.
+  Use the same heading row height in both columns.
+  The cards begin at the same vertical position.
 */
 
 .release-detail__content > .release-detail__section,
@@ -353,9 +355,9 @@
 }
 
 /*
-   Two-column headings use matching typography.
-   Smaller than the full-width LISTEN NOW heading
-   to accommodate longer titles.
+  Two-column headings use matching typography.
+  Smaller than the full-width LISTEN NOW heading
+  to accommodate longer titles.
 */
 
 .release-detail__content .release-detail__section-heading h2 {
@@ -403,8 +405,8 @@
 }
 
 /*
-   Headings inside secondary sidebar cards
-   (Videos, Credits, Related Links).
+  Headings inside secondary sidebar cards
+  (Videos, Credits, Related Links).
 */
 
 .release-detail__sidebar-card h2 {
@@ -534,6 +536,107 @@
 }
 
 /* ==========================================
+   REVEAL ANIMATION COMPATIBILITY
+   ========================================== */
+
+/*
+  Reveal introduces wrappers around individual
+  hero elements and the breadcrumb.
+
+  These adjustments preserve the original
+  spacing and layout without changing the
+  reveal animation itself.
+*/
+
+/* Breadcrumb wrapper retains original spacing */
+
+.release-detail > .container > .reveal:has(
+  > .release-detail__breadcrumb
+) {
+  margin-bottom: 3rem;
+}
+
+.release-detail > .container > .reveal
+  > .release-detail__breadcrumb {
+  margin-bottom: 0;
+}
+
+/* Hero artwork must remain a properly sized grid item */
+
+.release-detail__hero > .reveal.release-detail__artwork {
+  min-width: 0;
+  width: 100%;
+}
+
+/* Heading spacing now belongs to the Reveal wrapper */
+
+.release-detail__intro > .reveal:has(> h1) {
+  margin: 1rem 0;
+}
+
+.release-detail__intro > .reveal > h1 {
+  margin: 0;
+}
+
+/* Artist spacing */
+
+.release-detail__intro > .reveal:has(
+  > .release-detail__artist
+) {
+  margin-bottom: 2rem;
+}
+
+.release-detail__intro > .reveal
+  > .release-detail__artist {
+  margin-bottom: 0;
+}
+
+/* Description width and spacing */
+
+.release-detail__intro > .reveal:has(> p:not(
+  .release-detail__artist
+)) {
+  max-width: 520px;
+  margin-bottom: 2rem;
+}
+
+.release-detail__intro > .reveal
+  > p:not(.release-detail__artist) {
+  margin-bottom: 0;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+/* Streaming links retain their full width */
+
+.release-detail__intro > .reveal:has(
+  > .release-detail__platforms
+) {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Lyrics section heading keeps its grid position */
+
+.release-detail__content
+  .release-detail__section
+  > .reveal.release-detail__section-heading {
+  min-width: 0;
+}
+
+/* Sidebar sections use their original grid sizing */
+
+.release-detail__sidebar
+  > .reveal.release-detail__section,
+.release-detail__sidebar
+  > .reveal.release-detail__sidebar-card,
+.release-detail__sidebar
+  > .reveal.release-detail__memorial {
+  min-width: 0;
+  width: 100%;
+}
+
+/* ==========================================
    RESPONSIVE
    ========================================== */
 
@@ -543,8 +646,8 @@
   }
 
   /*
-     Remove fixed heading rows when stacked.
-     Each heading returns to natural height.
+    Remove fixed heading rows when stacked.
+    Each heading returns to natural height.
   */
 
   .release-detail__content > .release-detail__section,
@@ -594,7 +697,8 @@
     padding: 1.5rem;
   }
 
-  .release-detail__lyric-section + .release-detail__lyric-section {
+  .release-detail__lyric-section
+    + .release-detail__lyric-section {
     margin-top: 2rem;
   }
 
@@ -613,6 +717,12 @@
     margin-bottom: 2rem;
   }
 
+  .release-detail > .container > .reveal:has(
+    > .release-detail__breadcrumb
+  ) {
+    margin-bottom: 2rem;
+  }
+
   .release-detail__platform {
     padding: 0.7rem 0.85rem;
     font-size: 0.8rem;
@@ -626,7 +736,6 @@
     padding: 1.25rem;
   }
 }
-
 
 /* =========================================
    HOLIDAY FEAST — FESTIVE BACKGROUND
@@ -688,50 +797,62 @@
   pointer-events: none;
 
   background:
-    radial-gradient(circle at 7% 4%,
+    radial-gradient(
+      circle at 7% 4%,
       rgba(255, 195, 93, 0.7) 0,
       rgba(255, 195, 93, 0.18) 4px,
-      transparent 18px),
-
-    radial-gradient(circle at 81% 9%,
+      transparent 18px
+    ),
+    radial-gradient(
+      circle at 81% 9%,
       rgba(242, 93, 69, 0.55) 0,
-      transparent 15px),
-
-    radial-gradient(circle at 34% 16%,
+      transparent 15px
+    ),
+    radial-gradient(
+      circle at 34% 16%,
       rgba(255, 210, 123, 0.5) 0,
-      transparent 22px),
-
-    radial-gradient(circle at 93% 27%,
+      transparent 22px
+    ),
+    radial-gradient(
+      circle at 93% 27%,
       rgba(255, 194, 91, 0.55) 0,
-      transparent 25px),
-
-    radial-gradient(circle at 12% 35%,
+      transparent 25px
+    ),
+    radial-gradient(
+      circle at 12% 35%,
       rgba(232, 84, 60, 0.45) 0,
-      transparent 19px),
-
-    radial-gradient(circle at 71% 42%,
+      transparent 19px
+    ),
+    radial-gradient(
+      circle at 71% 42%,
       rgba(255, 214, 125, 0.6) 0,
-      transparent 28px),
-
-    radial-gradient(circle at 23% 54%,
+      transparent 28px
+    ),
+    radial-gradient(
+      circle at 23% 54%,
       rgba(255, 191, 83, 0.48) 0,
-      transparent 16px),
-
-    radial-gradient(circle at 89% 63%,
+      transparent 16px
+    ),
+    radial-gradient(
+      circle at 89% 63%,
       rgba(235, 80, 62, 0.42) 0,
-      transparent 23px),
-
-    radial-gradient(circle at 46% 72%,
+      transparent 23px
+    ),
+    radial-gradient(
+      circle at 46% 72%,
       rgba(255, 213, 130, 0.48) 0,
-      transparent 21px),
-
-    radial-gradient(circle at 8% 86%,
+      transparent 21px
+    ),
+    radial-gradient(
+      circle at 8% 86%,
       rgba(255, 189, 95, 0.55) 0,
-      transparent 26px),
-
-    radial-gradient(circle at 78% 91%,
+      transparent 26px
+    ),
+    radial-gradient(
+      circle at 78% 91%,
       rgba(255, 195, 105, 0.5) 0,
-      transparent 19px);
+      transparent 19px
+    );
 
   opacity: 0.75;
 }
@@ -791,8 +912,9 @@
     inset 0 1px 0 rgba(76, 142, 89, 0.1);
 }
 
-
-/* In Memoriam */
+/* =========================================
+   IN MEMORIAM
+   ========================================= */
 
 .release-detail__memorial {
   position: relative;
@@ -800,12 +922,14 @@
   padding: 2rem;
   border: 1px solid rgba(190, 150, 100, 0.25);
   border-radius: 12px;
+
   background:
     linear-gradient(
       145deg,
       rgba(80, 54, 38, 0.22),
       rgba(15, 12, 12, 0.75)
     );
+
   overflow: hidden;
 }
 
@@ -816,6 +940,7 @@
   left: 2rem;
   right: 2rem;
   height: 1px;
+
   background: linear-gradient(
     90deg,
     transparent,
@@ -875,4 +1000,3 @@
     font-size: 1.2rem;
   }
 }
-
