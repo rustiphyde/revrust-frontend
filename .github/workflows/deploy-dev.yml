@@ -24,12 +24,13 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy via SSH (rsync)
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: 69.27.42.172
-          port: 2223
-          username: revrust
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            rsync -av --delete dist/ /home/revrust/dev_html/
+      - name: Deploy to cPanel via SCP
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -t ed25519 -p 2223 69.27.42.172 > ~/.ssh/known_hosts
+          ssh-keygen -lf ~/.ssh/known_hosts | grep -F 'SHA256:gNhqxjE6z6cnUiGrrZfyEzZmrL08A+KZk+yXk3TwsiA'
+          scp -P 2223 -r dist/. revrust@69.27.42.172:/home/revrust/dev_html/
