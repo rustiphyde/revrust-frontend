@@ -24,13 +24,11 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy to cPanel (dev)
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+      - name: Deploy via SSH (rsync)
+        uses: appleboy/ssh-action@v1.0.3
         with:
-          server: ${{ secrets.CPANEL_HOST }}
-          username: ${{ secrets.CPANEL_USER }}
-          password: ${{ secrets.CPANEL_PASSWORD }}
-          protocol: ftps
-          port: 21
-          local-dir: dist/
-          server-dir: /dev_html/
+          host: revrust.com
+          username: revrust
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            rsync -av --delete dist/ /home/revrust/dev_html/
