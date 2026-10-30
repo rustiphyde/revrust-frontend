@@ -9,8 +9,6 @@ const links = [
   { to: "/merch", label: "Merch" },
   { to: "/videos", label: "Videos" },
   { to: "/shows", label: "Shows" },
-  { to: "/art", label: "Art" },
-  { to: "/worlds", label: "Worlds" },
   { to: "/lab", label: "Lab" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
