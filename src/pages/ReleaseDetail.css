@@ -790,3 +790,89 @@
     0 12px 35px rgba(0, 0, 0, 0.15),
     inset 0 1px 0 rgba(76, 142, 89, 0.1);
 }
+
+
+/* In Memoriam */
+
+.release-detail__memorial {
+  position: relative;
+  margin-top: 2rem;
+  padding: 2rem;
+  border: 1px solid rgba(190, 150, 100, 0.25);
+  border-radius: 12px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(80, 54, 38, 0.22),
+      rgba(15, 12, 12, 0.75)
+    );
+  overflow: hidden;
+}
+
+.release-detail__memorial::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  right: 2rem;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(218, 174, 111, 0.65),
+    transparent
+  );
+}
+
+.release-detail__memorial-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.release-detail__memorial-heading h2 {
+  margin: 0;
+  color: #d9b88a;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.release-detail__memorial-symbol {
+  color: #d9b88a;
+  font-size: 1.5rem;
+}
+
+.release-detail__memorial-name {
+  margin: 0 0 0.35rem;
+  color: #f1e7db;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.release-detail__memorial-date {
+  margin: 0 0 1.5rem;
+  color: #b99b7c;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+.release-detail__memorial-message {
+  color: #d0c4b9;
+  font-size: 0.95rem;
+  line-height: 1.85;
+  white-space: pre-line;
+}
+
+@media (max-width: 600px) {
+  .release-detail__memorial {
+    padding: 1.5rem;
+  }
+
+  .release-detail__memorial-name {
+    font-size: 1.2rem;
+  }
+}
+
