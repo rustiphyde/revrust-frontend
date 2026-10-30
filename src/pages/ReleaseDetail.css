@@ -1,0 +1,792 @@
+
+/* ==========================================
+   REV RUST — RELEASE DETAIL PAGE
+   ========================================== */
+
+/* PAGE */
+
+.release-detail {
+  min-height: 80vh;
+  padding: clamp(2rem, 5vw, 4rem) 0 6rem;
+
+  background:
+    radial-gradient(
+      ellipse at 15% 12%,
+      rgba(134, 75, 13, 0.18),
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 90% 40%,
+      rgba(184, 92, 56, 0.09),
+      transparent 55%
+    );
+}
+
+/* ==========================================
+   BREADCRUMBS
+   ========================================== */
+
+.release-detail__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+}
+
+.release-detail__breadcrumb a,
+.release-detail__back a {
+  color: var(--color-gold);
+  text-decoration: none;
+}
+
+.release-detail__breadcrumb a:hover,
+.release-detail__back a:hover {
+  color: var(--color-brand-orange);
+}
+
+/* ==========================================
+   RELEASE HERO
+   ========================================== */
+
+.release-detail__hero {
+  display: grid;
+  grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 6rem);
+  margin-bottom: 5rem;
+}
+
+/* ARTWORK */
+
+.release-detail__artwork {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.release-detail__artwork img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* RELEASE INFORMATION */
+
+.release-detail__intro h1 {
+  margin: 1rem 0;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+}
+
+.release-detail__artist {
+  margin-bottom: 2rem;
+  color: var(--color-copper);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.release-detail__intro > p:not(.release-detail__artist) {
+  max-width: 520px;
+  margin-bottom: 2rem;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+/* ==========================================
+   STREAMING PLATFORMS
+   ========================================== */
+
+.release-detail__platforms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.release-detail__platform {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 44px;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-elevated);
+  color: var(--color-cream);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition:
+    border-color var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.release-detail__platform:hover {
+  color: var(--color-cream);
+  border-color: var(--color-gold);
+  background: var(--color-bg-surface);
+}
+
+.release-detail__platform:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+.release-detail__platform svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.release-detail__platform--spotify svg {
+  color: #1db954;
+}
+
+.release-detail__platform--appleMusic svg {
+  color: #fa586a;
+}
+
+.release-detail__platform--youtubeMusic svg {
+  color: #ff0033;
+}
+
+/* ==========================================
+   CONTENT SECTIONS
+   ========================================== */
+
+.release-detail__section {
+  width: 100%;
+  max-width: none;
+  margin-bottom: 4rem;
+}
+
+.release-detail__section-heading {
+  margin-bottom: 1.5rem;
+}
+
+.release-detail__section-heading h2 {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+/* ==========================================
+   LYRICS
+   ========================================== */
+
+.release-detail__lyrics {
+  width: 100%;
+  min-width: 0;
+  padding: clamp(2rem, 5vw, 4rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(64, 41, 31, 0.85),
+      rgba(32, 20, 16, 0.95)
+    );
+
+  color: var(--color-cream);
+}
+
+.release-detail__lyric-section {
+  max-width: 760px;
+}
+
+.release-detail__lyric-section + .release-detail__lyric-section {
+  margin-top: 2.5rem;
+}
+
+/* HOOK / VERSE / BRIDGE HEADINGS */
+
+.release-detail__lyric-label {
+  margin: 0 0 0.85rem;
+  padding: 0;
+  color: var(--color-brand-orange);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* LYRIC TEXT */
+
+.release-detail__lyric-section p {
+  margin: 0;
+  color: var(--color-cream);
+  font-size: clamp(1rem, 1.25vw, 1.1rem);
+  font-weight: 400;
+  line-height: 1.9;
+  white-space: pre-line;
+}
+
+/* COPYRIGHT */
+
+.release-detail__copyright {
+  margin-top: 1rem;
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================
+   RELATED LINKS
+   ========================================== */
+
+.release-detail__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.release-detail__links a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.9rem 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-surface);
+  color: var(--color-gold);
+  text-decoration: none;
+
+  transition:
+    border-color var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.release-detail__links a:hover {
+  border-color: var(--color-gold);
+  background: var(--color-bg-elevated);
+}
+
+.release-detail__links a:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* ==========================================
+   CREDITS
+   ========================================== */
+
+.release-detail__credits {
+  display: grid;
+  gap: 1rem;
+}
+
+.release-detail__credits > div {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.release-detail__credits span {
+  color: var(--color-text-secondary);
+}
+
+.release-detail__credits a {
+  color: var(--color-gold);
+}
+
+.release-detail__credits a:hover {
+  color: var(--color-brand-orange);
+}
+
+/* ==========================================
+   LYRICS + SIDEBAR LAYOUT
+   ========================================== */
+
+
+.release-detail__content {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: start;
+  margin-bottom: 4rem;
+}
+
+
+/* Both columns must be allowed to shrink */
+
+.release-detail__content > .release-detail__section,
+.release-detail__content > .release-detail__sidebar {
+  min-width: 0;
+}
+
+/*
+   Use the same heading row height in both columns.
+   The cards begin at the same vertical position.
+*/
+
+.release-detail__content > .release-detail__section,
+.release-detail__sidebar > .release-detail__section {
+  display: grid;
+  grid-template-rows: 5rem auto;
+  align-content: start;
+  margin-bottom: 0;
+}
+
+/* Consistent heading spacing */
+
+.release-detail__content .release-detail__section-heading {
+  margin: 0;
+  min-width: 0;
+}
+
+/*
+   Two-column headings use matching typography.
+   Smaller than the full-width LISTEN NOW heading
+   to accommodate longer titles.
+*/
+
+.release-detail__content .release-detail__section-heading h2 {
+  margin-top: 0.5rem;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+  white-space: nowrap;
+}
+
+/* SINGLE-COLUMN VARIANTS */
+
+.release-detail__content--lyrics-only,
+.release-detail__content--sidebar-only {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.release-detail__content--lyrics-only .release-detail__lyrics {
+  max-width: 850px;
+}
+
+/* ==========================================
+   SIDEBAR
+   ========================================== */
+
+.release-detail__sidebar {
+  display: grid;
+  gap: 1.5rem;
+  align-content: start;
+  min-width: 0;
+}
+
+.release-detail__sidebar-card {
+  min-width: 0;
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(64, 41, 31, 0.85),
+      rgba(32, 20, 16, 0.95)
+    );
+}
+
+/*
+   Headings inside secondary sidebar cards
+   (Videos, Credits, Related Links).
+*/
+
+.release-detail__sidebar-card h2 {
+  margin: 0.5rem 0 1.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+/* ==========================================
+   BEHIND THE SONG
+   ========================================== */
+
+.release-detail__story {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.release-detail__story p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.975rem;
+  line-height: 1.85;
+}
+
+.release-detail__story p:last-child {
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+/* ==========================================
+   VIDEOS
+   ========================================== */
+
+.release-detail__sidebar-videos {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.release-detail__sidebar-video {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.release-detail__video-frame {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: #000;
+}
+
+.release-detail__video-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.release-detail__sidebar-video > a {
+  color: var(--color-gold);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.release-detail__sidebar-video > a:hover {
+  color: var(--color-brand-orange);
+}
+
+.release-detail__video-coming-soon {
+  margin-top: 1.5rem;
+  padding: 2.5rem 1.5rem;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-sm);
+  background: rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.release-detail__video-coming-soon span {
+  display: block;
+  color: var(--color-brand-orange);
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.release-detail__video-coming-soon p {
+  margin: 0.75rem 0 0;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+/* SIDEBAR LINKS */
+
+.release-detail__sidebar .release-detail__links {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.release-detail__sidebar .release-detail__links a {
+  width: 100%;
+}
+
+/* ==========================================
+   BACK NAVIGATION
+   ========================================== */
+
+.release-detail__back {
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-divider);
+}
+
+/* ==========================================
+   RELEASE NOT FOUND
+   ========================================== */
+
+.release-detail__missing {
+  padding-block: 6rem;
+}
+
+.release-detail__missing p {
+  margin-bottom: 2rem;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 900px) {
+  .release-detail__content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /*
+     Remove fixed heading rows when stacked.
+     Each heading returns to natural height.
+  */
+
+  .release-detail__content > .release-detail__section,
+  .release-detail__sidebar > .release-detail__section {
+    grid-template-rows: auto auto;
+  }
+
+  .release-detail__content .release-detail__section-heading {
+    margin-bottom: 1.5rem;
+  }
+
+  .release-detail__content .release-detail__section-heading h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    white-space: normal;
+  }
+
+  .release-detail__sidebar {
+    margin-bottom: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .release-detail__hero {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .release-detail__artwork {
+    max-width: 480px;
+  }
+
+  .release-detail__intro h1 {
+    font-size: clamp(2.5rem, 9vw, 4rem);
+  }
+
+  .release-detail__section {
+    margin-bottom: 3rem;
+  }
+
+  .release-detail__content > .release-detail__section,
+  .release-detail__sidebar > .release-detail__section {
+    margin-bottom: 0;
+  }
+
+  .release-detail__lyrics {
+    padding: 1.5rem;
+  }
+
+  .release-detail__lyric-section + .release-detail__lyric-section {
+    margin-top: 2rem;
+  }
+
+  .release-detail__lyric-section p {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .release-detail__platforms {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .release-detail__breadcrumb {
+    margin-bottom: 2rem;
+  }
+
+  .release-detail__platform {
+    padding: 0.7rem 0.85rem;
+    font-size: 0.8rem;
+  }
+
+  .release-detail__lyrics {
+    padding: 1.25rem;
+  }
+
+  .release-detail__sidebar-card {
+    padding: 1.25rem;
+  }
+}
+
+
+/* =========================================
+   HOLIDAY FEAST — FESTIVE BACKGROUND
+   ========================================= */
+
+.release-detail--holiday {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      ellipse 85% 28% at 8% 5%,
+      rgba(145, 77, 35, 0.48),
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse 75% 32% at 92% 18%,
+      rgba(113, 29, 42, 0.43),
+      transparent 85%
+    ),
+    radial-gradient(
+      ellipse 95% 40% at 15% 38%,
+      rgba(13, 83, 53, 0.65),
+      transparent 85%
+    ),
+    radial-gradient(
+      ellipse 85% 38% at 92% 60%,
+      rgba(22, 92, 56, 0.58),
+      transparent 85%
+    ),
+    radial-gradient(
+      ellipse 100% 42% at 25% 82%,
+      rgba(12, 72, 48, 0.72),
+      transparent 85%
+    ),
+    radial-gradient(
+      ellipse 75% 30% at 85% 95%,
+      rgba(122, 66, 29, 0.35),
+      transparent 85%
+    ),
+    linear-gradient(
+      165deg,
+      #291710 0%,
+      #26341f 22%,
+      #103b2b 46%,
+      #102e23 70%,
+      #231910 100%
+    );
+}
+
+/* Irregular, soft-focus holiday lights */
+
+.release-detail--holiday::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(circle at 7% 4%,
+      rgba(255, 195, 93, 0.7) 0,
+      rgba(255, 195, 93, 0.18) 4px,
+      transparent 18px),
+
+    radial-gradient(circle at 81% 9%,
+      rgba(242, 93, 69, 0.55) 0,
+      transparent 15px),
+
+    radial-gradient(circle at 34% 16%,
+      rgba(255, 210, 123, 0.5) 0,
+      transparent 22px),
+
+    radial-gradient(circle at 93% 27%,
+      rgba(255, 194, 91, 0.55) 0,
+      transparent 25px),
+
+    radial-gradient(circle at 12% 35%,
+      rgba(232, 84, 60, 0.45) 0,
+      transparent 19px),
+
+    radial-gradient(circle at 71% 42%,
+      rgba(255, 214, 125, 0.6) 0,
+      transparent 28px),
+
+    radial-gradient(circle at 23% 54%,
+      rgba(255, 191, 83, 0.48) 0,
+      transparent 16px),
+
+    radial-gradient(circle at 89% 63%,
+      rgba(235, 80, 62, 0.42) 0,
+      transparent 23px),
+
+    radial-gradient(circle at 46% 72%,
+      rgba(255, 213, 130, 0.48) 0,
+      transparent 21px),
+
+    radial-gradient(circle at 8% 86%,
+      rgba(255, 189, 95, 0.55) 0,
+      transparent 26px),
+
+    radial-gradient(circle at 78% 91%,
+      rgba(255, 195, 105, 0.5) 0,
+      transparent 19px);
+
+  opacity: 0.75;
+}
+
+/* Larger atmospheric light blooms */
+
+.release-detail--holiday::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse 45% 16% at 12% 25%,
+      rgba(18, 118, 68, 0.2),
+      transparent 90%
+    ),
+    radial-gradient(
+      ellipse 50% 20% at 88% 50%,
+      rgba(16, 130, 77, 0.2),
+      transparent 90%
+    ),
+    radial-gradient(
+      ellipse 50% 20% at 20% 75%,
+      rgba(20, 113, 66, 0.25),
+      transparent 90%
+    );
+}
+
+/* Holiday cards */
+
+.release-detail--holiday .release-detail__sidebar-card,
+.release-detail--holiday .release-detail__lyrics {
+  background: linear-gradient(
+    150deg,
+    rgba(43, 37, 26, 0.94),
+    rgba(24, 31, 24, 0.97)
+  );
+
+  border: 1px solid rgba(190, 143, 72, 0.32);
+}
+
+/* Warm golden headings */
+
+.release-detail--holiday .music-eyebrow,
+.release-detail--holiday .release-detail__lyric-label {
+  color: #f3b74c;
+}
+
+/* Subtle green accents on cards */
+
+.release-detail--holiday .release-detail__sidebar-card {
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(76, 142, 89, 0.1);
+}

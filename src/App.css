@@ -1,95 +1,76 @@
+/* ==========================================
+   REV RUST — GLOBAL DESIGN SYSTEM
+   ========================================== */
+
 :root {
-  /* =========================
-     Brand Core
-     ========================= */
-  --color-brand-orange: #FF8A00;
-  --color-brand-brown:  #864B0D;
+  color-scheme: dark;
 
-  /* =========================
-     Light Mode Backgrounds
-     ========================= */
-  --color-bg-page:      #FFF8EF; /* main page background */
-  --color-bg-section:   #F9C56C; /* accent / highlighted sections */
-  --color-bg-surface:   #FFFFFF; /* cards, panels */
+  /* Brand */
+  --color-brand-orange: #ff8a00;
+  --color-brand-brown: #864b0d;
+  --color-rust: #b85c38;
+  --color-copper: #d98548;
+  --color-gold: #eac45f;
+  --color-cream: #f6e7d8;
 
-  /* =========================
-     Light Mode Text
-     ========================= */
-  --color-text-primary: #3B2A1E;
-  --color-text-secondary: #6A4A2E;
-  --color-text-inverse: #FFFFFF;
+  /* Backgrounds */
+  --color-bg-page: #130d0b;
+  --color-bg-section: #2a1813;
+  --color-bg-surface: #302019;
+  --color-bg-elevated: #40291f;
 
-  /* =========================
-     Borders & UI
-     ========================= */
-  --color-border:       #C8A982;
-  --color-divider:      #E3D1B0;
+  /* Text */
+  --color-text-primary: #f6e7d8;
+  --color-text-secondary: #c8ad97;
+  --color-text-inverse: #130d0b;
 
-  /* =========================
-     Interaction States
-     ========================= */
-  --color-hover:        #DA8E32;
-  --color-active:       #C1620F;
+  /* Borders */
+  --color-border: #624334;
+  --color-divider: #38261e;
+
+  /* Interaction */
+  --color-hover: #eac45f;
+  --color-active: #ff8a00;
 
   /* Typography */
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-body: Arial, Helvetica, sans-serif;
+  --font-display: "Arial Black", Arial, sans-serif;
+
+  /* Layout */
+  --content-width: 1200px;
+  --section-spacing: clamp(4rem, 8vw, 8rem);
+
+  /* Effects */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  --shadow-card:
+    0 12px 36px rgba(0, 0, 0, 0.3);
+
+  --transition-fast: 180ms ease;
+  --transition-normal: 300ms ease;
+
+  font-family: var(--font-body);
   line-height: 1.6;
   font-weight: 400;
 
-  /* Disable demo color-scheme behavior */
-  color-scheme: light;
-
-  /* Text rendering */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.dark {
-  /* =========================
-     Dark Mode Backgrounds
-     ========================= */
-  --color-bg-page:      #1F120A;
-  --color-bg-section:   #2A1F15;
-  --color-bg-surface:   #3B2A1E;
+/* Reset */
 
-  /* =========================
-     Dark Mode Text
-     ========================= */
-  --color-text-primary: #E8DCCF;
-  --color-text-secondary: #B6A18A;
-  --color-text-inverse: #1F120A;
-
-  /* =========================
-     Borders & UI
-     ========================= */
-  --color-border:       #4A3A2E;
-  --color-divider:      #2F241A;
-
-  /* =========================
-     Interaction States
-     ========================= */
-  --color-hover:        #EAC45F;
-  --color-active:       #BB5A18;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg-page:      #1F120A;
-    --color-bg-section:   #2A1F15;
-    --color-bg-surface:   #3B2A1E;
-
-    --color-text-primary: #E8DCCF;
-    --color-text-secondary: #B6A18A;
-    --color-text-inverse: #1F120A;
-
-    --color-border:       #4A3A2E;
-    --color-divider:      #2F241A;
-
-    --color-hover:        #EAC45F;
-    --color-active:       #BB5A18;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -97,67 +78,222 @@ body {
   min-width: 320px;
   min-height: 100vh;
 
+  background:
+    radial-gradient(
+      ellipse at 0% 0%,
+      rgba(122, 57, 30, 0.34),
+      transparent 42%
+    ),
+    radial-gradient(
+      ellipse at 100% 35%,
+      rgba(91, 43, 25, 0.22),
+      transparent 45%
+    ),
+    linear-gradient(
+      145deg,
+      #241510 0%,
+      #170e0b 45%,
+      #130d0b 100%
+    );
+
   background-color: var(--color-bg-page);
   color: var(--color-text-primary);
 }
 
-.card {
-  background-color: var(--color-bg-surface);
-  border: 1px solid var(--color-border);
+#root {
+  min-height: 100vh;
 }
 
-.section--highlight {
-  background-color: var(--color-bg-section);
+/* Typography */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--color-text-primary);
 }
 
-.button-primary {
-  background-color: var(--color-brand-orange);
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+}
+
+p {
+  color: var(--color-text-secondary);
+}
+
+::selection {
+  background: var(--color-brand-orange);
   color: var(--color-text-inverse);
 }
 
-.button-primary:hover {
-  background-color: var(--color-hover);
-}
+/* Links */
 
 a {
-  font-weight: 500;
   color: var(--color-brand-orange);
   text-decoration: none;
+  transition: color var(--transition-fast);
 }
 
 a:hover {
   color: var(--color-hover);
 }
 
-/* Headings */
-h1 {
-  font-size: 3rem;
-  line-height: 1.15;
-  color: var(--color-text-primary);
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 4px;
 }
 
-/* Buttons — kill demo styling */
-button {
-  border-radius: 6px;
+/* Layout */
+
+.container {
+  width: min(
+    var(--content-width),
+    calc(100% - 40px)
+  );
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--section-spacing);
+}
+
+.section--highlight {
+  background: var(--color-bg-section);
+}
+
+/* Surfaces */
+
+.card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.01)
+    ),
+    var(--color-bg-surface);
+
   border: 1px solid var(--color-border);
-  padding: 0.6em 1.2em;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
 
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
+  transition:
+    transform var(--transition-normal),
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
 
-  background-color: var(--color-bg-surface);
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-copper);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4);
+}
+
+/* Buttons */
+
+button,
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+
+  padding: 0.8rem 1.5rem;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  background: var(--color-bg-surface);
   color: var(--color-text-primary);
+
+  font: inherit;
+  font-weight: 600;
 
   cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
-button:hover {
-  background-color: var(--color-hover);
+button:hover,
+.button:hover {
+  background: var(--color-bg-elevated);
+  border-color: var(--color-copper);
 }
 
-button:focus,
-button:focus-visible {
-  outline: none;
+.button-primary {
+  background: linear-gradient(
+    135deg,
+    var(--color-brand-orange),
+    var(--color-rust)
+  );
+
+  border-color: transparent;
+  color: var(--color-text-inverse);
+}
+
+.button-primary:hover {
+  background: linear-gradient(
+    135deg,
+    var(--color-gold),
+    var(--color-brand-orange)
+  );
+
+  color: var(--color-text-inverse);
+  transform: translateY(-2px);
+}
+
+/* Decorative utilities */
+
+.text-gradient {
+  background: linear-gradient(
+    110deg,
+    var(--color-cream),
+    var(--color-gold),
+    var(--color-brand-orange)
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.divider {
+  height: 1px;
+  border: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-border),
+    transparent
+  );
+}
+
+/* Motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
