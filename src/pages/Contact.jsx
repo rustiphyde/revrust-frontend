@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Reveal from "../components/Reveal";
 import "./Contact.css";
 
 const inquiryTypes = [
@@ -76,114 +77,153 @@ export default function Contact() {
 
   return (
     <main className="contact-page">
+      {/* ==========================================
+          HERO
+          ========================================== */}
+
       <section className="contact-hero">
         <div className="container">
-          <span className="contact-eyebrow">
-            REV RUST / CONTACT
-          </span>
+          <Reveal delay={0}>
+            <span className="contact-eyebrow">
+              REV RUST / CONTACT
+            </span>
+          </Reveal>
 
-          <h1>
-            LET'S MAKE
-            <br />
-            <span className="contact-gradient">SOME NOISE.</span>
-          </h1>
+          <Reveal delay={100}>
+            <h1>
+              LET'S MAKE
+              <br />
+              <span className="contact-gradient">
+                SOME NOISE.
+              </span>
+            </h1>
+          </Reveal>
 
-          <p>
-            Booking inquiries, collaborations, press, or just
-            something you want to say. Whatever brings you
-            here, this is where the conversation starts.
-          </p>
+          <Reveal delay={200}>
+            <p>
+              Booking inquiries, collaborations, press, or just
+              something you want to say. Whatever brings you
+              here, this is where the conversation starts.
+            </p>
+          </Reveal>
         </div>
       </section>
 
+      {/* ==========================================
+          CONTACT CONTENT
+          ========================================== */}
+
       <section className="contact-main section">
         <div className="container contact-layout">
+          {/* CONTACT INFORMATION */}
+
           <div className="contact-info">
-            <span className="contact-eyebrow">
-              GET IN TOUCH
-            </span>
+            <Reveal delay={0}>
+              <span className="contact-eyebrow">
+                GET IN TOUCH
+              </span>
+            </Reveal>
 
-            <h2>
-              OPEN THE
-              <br />
-              CONVERSATION.
-            </h2>
+            <Reveal delay={100}>
+              <h2>
+                OPEN THE
+                <br />
+                CONVERSATION.
+              </h2>
+            </Reveal>
 
-            <p className="contact-info__intro">
-              Have an idea, an opportunity, or a question?
-              Send a message using the form and it'll go
-              directly to Rev. Rust.
-            </p>
+            <Reveal delay={200}>
+              <p className="contact-info__intro">
+                Have an idea, an opportunity, or a question?
+                Send a message using the form and it'll go
+                directly to Rev. Rust.
+              </p>
+            </Reveal>
 
             <div className="contact-info__items">
-              <div className="contact-info__item">
-                <span className="contact-info__number">
-                  /01
-                </span>
+              <Reveal delay={0}>
+                <div className="contact-info__item">
+                  <span className="contact-info__number">
+                    /01
+                  </span>
 
-                <div>
-                  <h3>GENERAL & BUSINESS</h3>
-                  <p>
-                    Questions, booking opportunities,
-                    interviews, media requests, and
-                    professional inquiries.
-                  </p>
+                  <div>
+                    <h3>GENERAL & BUSINESS</h3>
+                    <p>
+                      Questions, booking opportunities,
+                      interviews, media requests, and
+                      professional inquiries.
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
 
-              <div className="contact-info__item">
-                <span className="contact-info__number">
-                  /02
-                </span>
+              <Reveal delay={100}>
+                <div className="contact-info__item">
+                  <span className="contact-info__number">
+                    /02
+                  </span>
 
-                <div>
-                  <h3>ARTIST COLLABORATIONS</h3>
-                  <p>
-                    Musicians, producers, vocalists, and
-                    other artists interested in creating
-                    something together.
-                  </p>
+                  <div>
+                    <h3>ARTIST COLLABORATIONS</h3>
+                    <p>
+                      Musicians, producers, vocalists, and
+                      other artists interested in creating
+                      something together.
+                    </p>
 
-                  <Link to="/lab" className="contact-info__link">
-                    Explore The Lab <span aria-hidden="true">↗</span>
-                  </Link>
+                    <Link
+                      to="/lab"
+                      className="contact-info__link"
+                    >
+                      Explore The Lab{" "}
+                      <span aria-hidden="true">↗</span>
+                    </Link>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
 
-              <div className="contact-info__item">
-                <span className="contact-info__number">
-                  /03
-                </span>
+              <Reveal delay={200}>
+                <div className="contact-info__item">
+                  <span className="contact-info__number">
+                    /03
+                  </span>
 
-                <div>
-                  <h3>DIRECT EMAIL</h3>
-                  <a
-                    href="mailto:rev.rust@revrust.com"
-                    className="contact-info__email"
-                  >
-                    rev.rust@revrust.com
-                  </a>
+                  <div>
+                    <h3>DIRECT EMAIL</h3>
+                    <a
+                      href="mailto:rev.rust@revrust.com"
+                      className="contact-info__email"
+                    >
+                      rev.rust@revrust.com
+                    </a>
+                  </div>
                 </div>
-              </div>
-              <div className="contact-info__item">
-                <span className="contact-info__number">
-                  /04
-                </span>
+              </Reveal>
 
-                <div>
-                  <h3>PHONE</h3>
-                  <a
-                    href="tel:+13143373887"
-                    className="contact-info__email"
-                  >
-                    (314) 337-3887
-                  </a>
+              <Reveal delay={300}>
+                <div className="contact-info__item">
+                  <span className="contact-info__number">
+                    /04
+                  </span>
+
+                  <div>
+                    <h3>PHONE</h3>
+                    <a
+                      href="tel:+13143373887"
+                      className="contact-info__email"
+                    >
+                      (314) 337-3887
+                    </a>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             </div>
           </div>
 
-          <div className="contact-form-panel">
+          {/* CONTACT FORM */}
+
+          <Reveal className="contact-form-panel" delay={150}>
             <div className="contact-form-panel__heading">
               <span className="contact-eyebrow">
                 SEND A MESSAGE
@@ -197,10 +237,15 @@ export default function Contact() {
               </p>
             </div>
 
-            <form className="contact-form" onSubmit={handleSubmit}>
+            <form
+              className="contact-form"
+              onSubmit={handleSubmit}
+            >
               <div className="contact-form__row">
                 <div className="contact-form__field">
-                  <label htmlFor="contact-name">Your Name *</label>
+                  <label htmlFor="contact-name">
+                    Your Name *
+                  </label>
                   <input
                     id="contact-name"
                     name="name"
@@ -215,7 +260,9 @@ export default function Contact() {
                 </div>
 
                 <div className="contact-form__field">
-                  <label htmlFor="contact-email">Email Address *</label>
+                  <label htmlFor="contact-email">
+                    Email Address *
+                  </label>
                   <input
                     id="contact-email"
                     name="email"
@@ -242,7 +289,10 @@ export default function Contact() {
                   required
                 >
                   {inquiryTypes.map((type) => (
-                    <option key={type.value} value={type.value}>
+                    <option
+                      key={type.value}
+                      value={type.value}
+                    >
                       {type.label}
                     </option>
                   ))}
@@ -250,7 +300,9 @@ export default function Contact() {
               </div>
 
               <div className="contact-form__field">
-                <label htmlFor="contact-subject">Subject *</label>
+                <label htmlFor="contact-subject">
+                  Subject *
+                </label>
                 <input
                   id="contact-subject"
                   name="subject"
@@ -264,7 +316,9 @@ export default function Contact() {
               </div>
 
               <div className="contact-form__field">
-                <label htmlFor="contact-message">Message *</label>
+                <label htmlFor="contact-message">
+                  Message *
+                </label>
                 <textarea
                   id="contact-message"
                   name="message"
@@ -309,7 +363,11 @@ export default function Contact() {
               {feedback && (
                 <p
                   className={`contact-form__feedback contact-form__feedback--${status}`}
-                  role={status === "error" ? "alert" : "status"}
+                  role={
+                    status === "error"
+                      ? "alert"
+                      : "status"
+                  }
                   aria-live="polite"
                 >
                   {feedback}
@@ -321,7 +379,7 @@ export default function Contact() {
                 to your inquiry.
               </p>
             </form>
-          </div>
+          </Reveal>
         </div>
       </section>
     </main>

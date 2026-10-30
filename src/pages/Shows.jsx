@@ -1,8 +1,11 @@
+
+import ComingSoon from "../components/ComingSoon";
+
 export default function Shows() {
-    return (
-      <div style={{ padding: "2rem" }}>
-        <h1>Shows</h1>
-        <p>Your Shows page content goes here.</p>
-      </div>
-    );
-  }
+  return (
+    <ComingSoon
+      title="TURN IT UP."
+      description="No show announcements just yet. Check back for upcoming appearances and live events."
+    />
+  );
+}

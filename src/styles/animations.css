@@ -1,0 +1,71 @@
+
+/* Shared entrance and scroll-reveal animations */
+
+@keyframes rr-reveal-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes rr-reveal-scale {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+/* Immediate entrance animations */
+
+.rr-entrance {
+  animation: rr-reveal-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--rr-delay, 0ms);
+}
+
+.rr-entrance-scale {
+  animation: rr-reveal-scale 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--rr-delay, 0ms);
+}
+
+/* Scroll-triggered animations */
+
+.rr-reveal {
+  opacity: 1;
+}
+
+.rr-motion-ready .rr-reveal {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--rr-delay, 0ms);
+}
+
+.rr-motion-ready .rr-reveal.rr-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rr-entrance,
+  .rr-entrance-scale {
+    animation: none !important;
+  }
+
+  .rr-motion-ready .rr-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

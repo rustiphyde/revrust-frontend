@@ -2,6 +2,7 @@
 import { Link, useParams } from "react-router-dom";
 import { SiSpotify, SiApplemusic, SiYoutubemusic } from "react-icons/si";
 import { releases } from "../data/releases";
+import Reveal from "../components/Reveal";
 import "./ReleaseDetail.css";
 
 const platforms = [
@@ -80,7 +81,13 @@ function Lyrics({ lyrics }) {
                   {firstLine.slice(1, -1)}
                 </h3>
               )}
-              <p>{lines.slice(hasLabel ? 1 : 0).join("\n").trim()}</p>
+
+              <p>
+                {lines
+                  .slice(hasLabel ? 1 : 0)
+                  .join("\n")
+                  .trim()}
+              </p>
             </div>
           );
         })}
@@ -94,19 +101,28 @@ function ReleaseSidebar({ release }) {
   const videoComingSoon = release.videoComingSoon === true;
   const hasCredits = Boolean(release.credits?.length);
   const hasLinks = Boolean(release.links?.length);
+  const hasMemorial = Boolean(release.inMemoriam);
 
-  if (!hasStory && !hasVideos && !videoComingSoon && !hasCredits && !hasLinks) {
+  if (
+    !hasStory &&
+    !hasVideos &&
+    !videoComingSoon &&
+    !hasCredits &&
+    !hasLinks &&
+    !hasMemorial
+  ) {
     return null;
   }
 
   return (
     <aside className="release-detail__sidebar">
       {hasStory && (
-        <section className="release-detail__section">
+        <Reveal as="section" className="release-detail__section">
           <div className="release-detail__section-heading">
             <span className="music-eyebrow">THE STORY</span>
             <h2>BEHIND THE SONG</h2>
           </div>
+
           <div className="release-detail__sidebar-card">
             <div className="release-detail__story">
               {release.behindTheSong
@@ -117,18 +133,23 @@ function ReleaseSidebar({ release }) {
                 ))}
             </div>
           </div>
-        </section>
+        </Reveal>
       )}
 
       {hasVideos && (
-        <section className="release-detail__sidebar-card">
+        <Reveal as="section" className="release-detail__sidebar-card">
           <span className="music-eyebrow">WATCH</span>
           <h2>MUSIC VIDEOS</h2>
+
           <div className="release-detail__sidebar-videos">
             {release.videos.map((video) => {
               const embedUrl = getYouTubeEmbedUrl(video.url);
+
               return (
-                <div className="release-detail__sidebar-video" key={video.url}>
+                <div
+                  className="release-detail__sidebar-video"
+                  key={video.url}
+                >
                   {embedUrl && (
                     <div className="release-detail__video-frame">
                       <iframe
@@ -141,37 +162,49 @@ function ReleaseSidebar({ release }) {
                       />
                     </div>
                   )}
-                  <a href={video.url} target="_blank" rel="noopener noreferrer">
+
+                  <a
+                    href={video.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {video.title} ↗
                   </a>
                 </div>
               );
             })}
           </div>
-        </section>
+        </Reveal>
       )}
 
       {videoComingSoon && !hasVideos && (
-        <section className="release-detail__sidebar-card">
+        <Reveal as="section" className="release-detail__sidebar-card">
           <span className="music-eyebrow">WATCH</span>
           <h2>MUSIC VIDEO</h2>
+
           <div className="release-detail__video-coming-soon">
             <span>COMING SOON</span>
             <p>The official music video is on its way.</p>
           </div>
-        </section>
+        </Reveal>
       )}
 
       {hasCredits && (
-        <section className="release-detail__sidebar-card">
+        <Reveal as="section" className="release-detail__sidebar-card">
           <span className="music-eyebrow">THE PEOPLE</span>
           <h2>RELEASE CREDITS</h2>
+
           <div className="release-detail__credits">
             {release.credits.map((credit, index) => (
               <div key={`${credit.name}-${index}`}>
                 <span>{credit.role}</span>
+
                 {credit.url ? (
-                  <a href={credit.url} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={credit.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {credit.name} ↗
                   </a>
                 ) : (
@@ -180,12 +213,11 @@ function ReleaseSidebar({ release }) {
               </div>
             ))}
           </div>
-        </section>
+        </Reveal>
       )}
 
-      
-      {release.inMemoriam && (
-        <section className="release-detail__memorial">
+      {hasMemorial && (
+        <Reveal as="section" className="release-detail__memorial">
           <div className="release-detail__memorial-heading">
             <span className="release-detail__memorial-symbol">
               ✦
@@ -204,22 +236,27 @@ function ReleaseSidebar({ release }) {
           <div className="release-detail__memorial-message">
             {release.inMemoriam.message}
           </div>
-        </section>
+        </Reveal>
       )}
 
-
       {hasLinks && (
-        <section className="release-detail__sidebar-card">
+        <Reveal as="section" className="release-detail__sidebar-card">
           <span className="music-eyebrow">EXPLORE MORE</span>
           <h2>RELATED LINKS</h2>
+
           <div className="release-detail__links">
             {release.links.map((link) => (
-              <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer">
+              <a
+                key={link.url}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {link.label} ↗
               </a>
             ))}
           </div>
-        </section>
+        </Reveal>
       )}
     </aside>
   );
@@ -245,7 +282,6 @@ export default function ReleaseDetail() {
     /open\.spotify\.com\/track\/([A-Za-z0-9]+)/
   )?.[1];
 
-  
   const hasSidebar =
     Boolean(release.behindTheSong?.trim()) ||
     Boolean(release.videos?.length) ||
@@ -254,41 +290,80 @@ export default function ReleaseDetail() {
     Boolean(release.links?.length) ||
     Boolean(release.inMemoriam);
 
-
   return (
     <div
       className={`release-detail${
-        release.id === "holiday-feast" ? " release-detail--holiday" : ""
+        release.id === "holiday-feast"
+          ? " release-detail--holiday"
+          : ""
       }`}
     >
       <div className="container">
-        <nav className="release-detail__breadcrumb" aria-label="Breadcrumb">
-          <Link to="/music">Music</Link>
-          <span aria-hidden="true">/</span>
-          <span>{release.title}</span>
-        </nav>
+        {/* BREADCRUMB */}
+
+        <Reveal delay={0}>
+          <nav
+            className="release-detail__breadcrumb"
+            aria-label="Breadcrumb"
+          >
+            <Link to="/music">Music</Link>
+            <span aria-hidden="true">/</span>
+            <span>{release.title}</span>
+          </nav>
+        </Reveal>
+
+        {/* RELEASE HERO */}
 
         <section className="release-detail__hero">
-          <div className="release-detail__artwork">
-            <img src={release.artwork} alt={`${release.title} cover artwork`} />
-          </div>
+          <Reveal className="release-detail__artwork" delay={100}>
+            <img
+              src={release.artwork}
+              alt={`${release.title} cover artwork`}
+            />
+          </Reveal>
+
           <div className="release-detail__intro">
-            <span className="music-eyebrow">
-              {release.seasonal ? "HOLIDAY RELEASE" : "REV RUST RELEASE"}
-            </span>
-            <h1>{release.title}</h1>
-            <p className="release-detail__artist">REV RUST</p>
-            {release.description && <p>{release.description}</p>}
-            <StreamingLinks release={release} />
+            <Reveal delay={100}>
+              <span className="music-eyebrow">
+                {release.seasonal
+                  ? "HOLIDAY RELEASE"
+                  : "REV RUST RELEASE"}
+              </span>
+            </Reveal>
+
+            <Reveal delay={200}>
+              <h1>{release.title}</h1>
+            </Reveal>
+
+            <Reveal delay={300}>
+              <p className="release-detail__artist">
+                REV RUST
+              </p>
+            </Reveal>
+
+            {release.description && (
+              <Reveal delay={350}>
+                <p>{release.description}</p>
+              </Reveal>
+            )}
+
+            <Reveal delay={400}>
+              <StreamingLinks release={release} />
+            </Reveal>
           </div>
         </section>
 
+        {/* SPOTIFY PLAYER */}
+
         {spotifyId && (
-          <section className="release-detail__section">
+          <Reveal as="section" className="release-detail__section">
             <div className="release-detail__section-heading">
-              <span className="music-eyebrow">PRESS PLAY</span>
+              <span className="music-eyebrow">
+                PRESS PLAY
+              </span>
               <h2>LISTEN NOW</h2>
             </div>
+
             <iframe
               title={`Listen to ${release.title} on Spotify`}
               src={`https://open.spotify.com/embed/track/${spotifyId}`}
@@ -296,33 +371,52 @@ export default function ReleaseDetail() {
               height="152"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
-              style={{ border: 0, borderRadius: "12px" }}
+              style={{
+                border: 0,
+                borderRadius: "12px",
+              }}
             />
-          </section>
+          </Reveal>
         )}
+
+        {/* LYRICS AND SIDEBAR */}
 
         {(release.lyrics || hasSidebar) && (
           <div
             className={`release-detail__content ${
-              !release.lyrics ? "release-detail__content--sidebar-only" : ""
-            } ${!hasSidebar ? "release-detail__content--lyrics-only" : ""}`}
+              !release.lyrics
+                ? "release-detail__content--sidebar-only"
+                : ""
+            } ${
+              !hasSidebar
+                ? "release-detail__content--lyrics-only"
+                : ""
+            }`}
           >
             {release.lyrics && (
               <section className="release-detail__section">
-                <div className="release-detail__section-heading">
-                  <span className="music-eyebrow">THE WORDS</span>
+                <Reveal className="release-detail__section-heading">
+                  <span className="music-eyebrow">
+                    THE WORDS
+                  </span>
                   <h2>LYRICS</h2>
-                </div>
+                </Reveal>
+
                 <Lyrics lyrics={release.lyrics} />
               </section>
             )}
+
             <ReleaseSidebar release={release} />
           </div>
         )}
 
-        <div className="release-detail__back">
-          <Link to="/music">← Back to Discography</Link>
-        </div>
+        {/* BACK TO DISCOGRAPHY */}
+
+        <Reveal className="release-detail__back">
+          <Link to="/music">
+            ← Back to Discography
+          </Link>
+        </Reveal>
       </div>
     </div>
   );

@@ -465,6 +465,89 @@
 }
 
 /* =========================================
+   REVEAL ANIMATION COMPATIBILITY
+   ========================================= */
+
+/*
+  Reveal uses the independent translate property,
+  so existing transform-based hover animations
+  remain intact.
+*/
+
+.about-hero__content > .reveal,
+.about-story__content > .reveal,
+.about-origin__content > .reveal,
+.about-cta__inner > .reveal {
+  min-width: 0;
+}
+
+/* Preserve original spacing between hero elements */
+
+.about-hero__content > .reveal:has(.about-hero__title) {
+  margin-bottom: 24px;
+}
+
+.about-hero__content > .reveal:has(.about-hero__intro) {
+  margin-bottom: 36px;
+}
+
+.about-hero__content .about-hero__title,
+.about-hero__content .about-hero__intro {
+  margin-bottom: 0;
+}
+
+/* Keep hero buttons correctly sized */
+
+.about-hero__actions {
+  width: 100%;
+}
+
+/* Preserve paragraph spacing inside reveal wrappers */
+
+.about-story__content > .reveal,
+.about-origin__content > .reveal {
+  margin-bottom: 24px;
+}
+
+.about-story__content > .reveal p,
+.about-origin__content > .reveal p {
+  margin-bottom: 0;
+}
+
+/* Preserve the additional spacing on the closing paragraph */
+
+.about-origin__content > .reveal:has(.about-origin__closing) {
+  margin-top: 35px;
+}
+
+.about-origin__content .about-origin__closing {
+  margin-top: 0;
+}
+
+/* Ensure animated cards retain their grid dimensions */
+
+.about-sound__grid > .reveal {
+  min-width: 0;
+  width: 100%;
+}
+
+/* Maintain timeline positioning and spacing */
+
+.about-journey__timeline > .reveal {
+  min-width: 0;
+}
+
+/* Preserve CTA spacing when headings and buttons are wrapped */
+
+.about-cta__inner > .reveal:has(p) {
+  margin-bottom: 35px;
+}
+
+.about-cta__inner > .reveal p {
+  margin-bottom: 0;
+}
+
+/* =========================================
    RESPONSIVE — TABLET
    ========================================= */
 
@@ -500,12 +583,10 @@
     padding: 70px 0;
   }
 
-  
-    .about-hero {
+  .about-hero {
     min-height: auto;
     padding: 65px 0 70px;
-    }
-
+  }
 
   .about-hero__title {
     font-size: clamp(2.2rem, 8.5vw, 3.5rem);
@@ -542,20 +623,28 @@
     padding-left: 25px;
   }
 
-  
-    .about-story__content p,
-    .about-origin__content p {
+  .about-story__content p,
+  .about-origin__content p {
     font-size: 1.05rem;
     line-height: 1.85;
     margin-bottom: 28px;
-    }
+  }
 
-    .about-story__content .about-story__lead,
-    .about-origin__content .about-origin__lead {
+  .about-story__content .about-story__lead,
+  .about-origin__content .about-origin__lead {
     font-size: 1.15rem;
     line-height: 1.65;
-    }
+  }
 
+  .about-story__content > .reveal,
+  .about-origin__content > .reveal {
+    margin-bottom: 28px;
+  }
+
+  .about-story__content > .reveal p,
+  .about-origin__content > .reveal p {
+    margin-bottom: 0;
+  }
 }
 
 /* =========================================
