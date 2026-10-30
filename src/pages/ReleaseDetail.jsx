@@ -183,6 +183,31 @@ function ReleaseSidebar({ release }) {
         </section>
       )}
 
+      
+      {release.inMemoriam && (
+        <section className="release-detail__memorial">
+          <div className="release-detail__memorial-heading">
+            <span className="release-detail__memorial-symbol">
+              ✦
+            </span>
+            <h2>In Memoriam</h2>
+          </div>
+
+          <h3 className="release-detail__memorial-name">
+            {release.inMemoriam.name}
+          </h3>
+
+          <p className="release-detail__memorial-date">
+            Remembering Ross · {release.inMemoriam.date}
+          </p>
+
+          <div className="release-detail__memorial-message">
+            {release.inMemoriam.message}
+          </div>
+        </section>
+      )}
+
+
       {hasLinks && (
         <section className="release-detail__sidebar-card">
           <span className="music-eyebrow">EXPLORE MORE</span>
@@ -220,12 +245,15 @@ export default function ReleaseDetail() {
     /open\.spotify\.com\/track\/([A-Za-z0-9]+)/
   )?.[1];
 
+  
   const hasSidebar =
     Boolean(release.behindTheSong?.trim()) ||
     Boolean(release.videos?.length) ||
     Boolean(release.videoComingSoon) ||
     Boolean(release.credits?.length) ||
-    Boolean(release.links?.length);
+    Boolean(release.links?.length) ||
+    Boolean(release.inMemoriam);
+
 
   return (
     <div
