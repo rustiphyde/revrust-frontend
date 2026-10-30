@@ -28,6 +28,7 @@ jobs:
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: 69.27.42.172
+          port: 2223
           username: revrust
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
